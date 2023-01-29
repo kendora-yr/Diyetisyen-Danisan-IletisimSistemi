@@ -1,0 +1,63 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Admin{
+  id Int @id @default(autoincrement())
+  email String @unique
+  sifre String
+}
+
+model Kullanici{
+  id Int @id @default(autoincrement())
+  sifre String
+  email String @unique
+  kullaniciTipi Int
+  kullaniciId Int 
+  olusturmaTarihi DateTime @default(now())
+  alici Mesaj[] @relation(name:"alici")
+  gonderici Mesaj[] @relation(name:"gonderici")
+}
+
+model Mesaj{
+  id Int @id @default(autoincrement())
+  metin String
+  aliciId Int
+  alici Kullanici @relation(name:"alici", fields:[aliciId], references:[id])
+  gondericiId Int
+  gonderici Kullanici @relation(name:"gonderici", fields:[gondericiId], references:[id])
+  olusturmaTarihi DateTime @default(now())
+}
+
+model Diyetisyen{
+  id Int @id @default(autoincrement())
+  ad String
+  sifre String
+  email String @unique
+  telefon String
+  olusturmaTarihi DateTime @default(now())
+  danisan Danisan[] @relation(name:"DiyetisyenDanisan")
+} 
+
+model Danisan{
+  id Int @id @default(autoincrement())
+  ad String
+  sifre String
+  email String @unique
+  olusturmaTarihi DateTime @default(now())
+  boy Int
+  kilo Int
+  yas Int
+  telefon String
+  cinsiyet String
+  diyetisyenId Int
+  diyetisyen Diyetisyen @relation(name:"DiyetisyenDanisan", fields:[diyetisyenId], references:[id])
+}

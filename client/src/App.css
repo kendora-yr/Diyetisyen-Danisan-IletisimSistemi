@@ -1,0 +1,65 @@
+#loginForm {  
+  overflow-x: hidden;
+  height: 100%;
+  background-image: url("./images/loginImg.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+#forgetForm{
+  overflow-x: hidden;
+  height: 100%;
+  background-image: url("./images/forgetImg.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+.login-form,
+.forget-form {
+  padding: 30px 40px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: 30%;
+  margin-right: 30%;
+  border: 1px lightgray solid !important;
+  background-color:	#ffffff;
+  
+}
+
+button {
+  padding: 5px 5px;
+  margin: 5px 0px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;  
+ 
+}
+
+#sub_btn {
+  text-transform: uppercase;
+  font-size: 15px !important;
+  height: 43px;
+  cursor: pointer;
+}
+#sub_btn:hover {
+  color: #fff !important;
+}
+
+button:focus {
+  -moz-box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  outline-width: 0;
+}
+
+.right-label {
+    float: right;
+    cursor: pointer;
+    font-size:12px !important
+}
+
+
+
+
+
+
+
